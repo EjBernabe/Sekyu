@@ -1,0 +1,17 @@
+[
+    {
+        "key": "Users",
+        "title": "User Management",
+        "image": "'../../Assets/images/img_blue_users.png'"
+    },
+    {
+        "key": "Vehicles",
+        "title": "Vehicles Management",
+        "image": "'../../Assets/images/img_vehicles.jpg'"
+    },
+    {
+        "key": "Reports",
+        "title": "Reports Management",
+        "image": "'../../Assets/images/img_blue_users.png'"
+    }
+]
