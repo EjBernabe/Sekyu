@@ -30,17 +30,17 @@ const RouterComponent = () => {
                         title="Login" />
                 </Scene>        
 
-                <Scene initial hideNavBar key="adminScene">
+                <Scene  hideNavBar key="adminScene">
                     <Scene 
                         key="AdminHome" 
                         component={ Admin } />
 
-                    <Scene initial hideNavBar key="usersMgmtScene">
+                    <Scene  hideNavBar key="usersMgmtScene">
                         <Scene 
                             key="UsersManagement" 
                             component={ UsersManagement } />    
                         
-                        <Scene initial
+                        <Scene 
                             key="NewUser"
                             component={ NewUser } />
                     </Scene>
@@ -60,7 +60,7 @@ const RouterComponent = () => {
                     </Scene>
                 </Scene>
 
-                <Scene  hideNavBar key="homeownerScene">
+                <Scene initial hideNavBar key="homeownerScene">
                     <Scene 
                         key="HomeownerHome"
                         component={ Homeowner }

@@ -1,12 +1,12 @@
 import React, { Component} from 'react';
 import { Button, Text } from 'native-base';
 import firebase from 'firebase';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 
-import configureStore from '../configureStore';
+// import configureStore from '../configureStore';
 import Login from './Login/Login';
 
-const store = configureStore();
+//const store = configureStore();
  
 class App extends Component {
     componentWillMount () {
@@ -27,9 +27,9 @@ class App extends Component {
 
     render() {
         return (
-            <Provider store={ store }>
-                <Login />
-            </Provider>
+            // <Provider store={ store }>
+            <Login />
+            // </Provider>
         )
     }
 };

@@ -5,7 +5,6 @@ import { Container, Content, Button, Text,
 import { connect } from 'react-redux';
 
 import { emailChanged, passwordChanged, loginUser } from '../../Actions';
-import Auxi from '../Layout/Auxi';
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
 import InputField from '../../Components/InputComponents/InputField/InputField';
 import LoaderSpinner from '../../Components/InputComponents/LoaderSpinner/LoaderSpinner';
