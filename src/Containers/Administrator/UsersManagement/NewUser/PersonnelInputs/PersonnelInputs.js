@@ -6,7 +6,7 @@ import { Container, Content, Form, Text, Button,
                     Card, CardItem, Right } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
-import Aux from '../../../../../Containers/Layout/Aux';
+import AuxLayout from '../../../../../Containers/Layout/AuxLayout';
 
 class PersonnelInputs extends Component {
     state = {
@@ -31,7 +31,7 @@ class PersonnelInputs extends Component {
         // const shiftLabel = this.state.shiftAlloted + ' Listed';
         const shiftLabel = this.state.shiftTimeArrs.filter( (val) => val > 0 ).length + ' Listed';
         return (
-            <Aux>
+            <AuxLayout>
                 <Content style={{flex: 1, flexDirection: 'row'}}>
                     <Item stackedLabel>
                         <Label>Shift Alloted</Label>
@@ -108,7 +108,7 @@ class PersonnelInputs extends Component {
                         </Container>
                     </Modal>
                 </View>
-            </Aux>
+            </AuxLayout>
         );
     }
 }

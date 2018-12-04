@@ -6,7 +6,7 @@ import { View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
-import Aux from '../Layout/Aux';
+import AuxLayout from '../Layout/AuxLayout';
 import AdvanceForm from './AdvanceForm/AdvanceForm';
 import VisitorsList from './VisitorsList/VisitorsList';
 import HeaderbarNav from './HeaderbarNav/HeaderbarNav';

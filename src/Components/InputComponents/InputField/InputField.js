@@ -1,11 +1,11 @@
 import React from 'react';
 import { Input, Text, View, Item, Label } from 'native-base';
 
-import Aux from '../../../Containers/Layout/Aux';
+import AuxLayout from '../../../Containers/Layout/AuxLayout';
 
 const InputField = ( props ) => {
     return (
-        <Aux>
+        <AuxLayout>
             <Item stackedLabel style={ styles.containerStyle }>
                 <Label style={ styles.containerStyle }>{ props.label }</Label>
                 <Input
@@ -15,7 +15,7 @@ const InputField = ( props ) => {
                     value={ props.value }
                     onChangeText={ props.onChangeText } />
             </Item>
-        </Aux>
+        </AuxLayout>
     );
 };
 

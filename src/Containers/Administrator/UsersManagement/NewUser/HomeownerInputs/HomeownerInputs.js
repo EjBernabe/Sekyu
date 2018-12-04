@@ -3,7 +3,7 @@ import { Container, Content, Form, Text, Picker, Item } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import InputField from '../../../../../Components/InputComponents/InputField/InputField';
 
-import Aux from '../../../../../Containers/Layout/Aux';
+import AuxLayout from '../../../../../Containers/Layout/AuxLayout';
 
 class HomeownerInputs extends Component {
     state = {
@@ -14,10 +14,10 @@ class HomeownerInputs extends Component {
     render () {
 
         return (
-            <Aux>
+            <AuxLayout>
                 <InputField key={'Building'} label={'Building'} />
                 <InputField key={'Unit'} label={'Unit/House No.'} />
-            </Aux>
+            </AuxLayout>
         );
     }
 }

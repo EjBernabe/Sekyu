@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { Container, Content, Button, Text, ActionSheet, Root } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
-import Aux from '../../Layout/Aux';
+import AuxLayout from '../../Layout/AuxLayout';
 import HeaderBar from '../../../Components/HeaderBar/HeaderBar';
 import TabBarOptions from '../../../Components/Navigation/TabBarOptions/TabBarOptions';
 

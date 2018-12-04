@@ -6,7 +6,7 @@ import { Actions } from 'react-native-router-flux';
 
 import HeaderBar from '../../Components/HeaderBar/HeaderBar';
 import CardButton from '../../Components/CardButton/CardButton';
-import Aux from '../Layout/Aux';
+import AuxLayout from '../Layout/AuxLayout';
 
 const data = require('../../Containers/Administrator/Modules.json');
 // Make a component
@@ -47,13 +47,13 @@ class Admin extends Component {
                 clicked={() => this.navigateHandler(card.key)} />);
 
         return (
-            <Aux>
+            <AuxLayout>
                 <HeaderBar 
                     title={'Administrator'} 
                     endTitle={'Logout'}
                     clicked={ this.logoutHandler } />
                 <Content>{cardsOutput}</Content>
-            </Aux>
+            </AuxLayout>
         );    
     };
 };

@@ -3,11 +3,11 @@ import { Image, TouchableWithoutFeedback, Alert } from 'react-native';
 import {  Container, Header, Content, Card, CardItem, 
             Thumbnail, Text, Button, Icon, Left, Body, Right } from "native-base";
 
-import Aux from '../../Containers/Layout/Aux';
+import AuxLayout from '../../Containers/Layout/AuxLayout';
 
 const CardButton = ( props ) => {
     return (
-            <Aux>
+            <AuxLayout>
                 <Card>
                     <CardItem button onPress={ props.clicked }>
                         <Left>
@@ -23,7 +23,7 @@ const CardButton = ( props ) => {
                             style={{height: 200, width: null, flex: 1}} />
                     </CardItem>
                 </Card>
-            </Aux>
+            </AuxLayout>
     );
     
 }

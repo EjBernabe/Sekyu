@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 
 import { newNormalTextInfo } from '../../../../Actions';
-import Aux from '../../../Layout/Aux';
+import AuxLayout from '../../../Layout/AuxLayout';
 import HeaderBar from '../../../../Components/HeaderBar/HeaderBar';
 import InputField from '../../../../Components/InputComponents/InputField/InputField';
 import PersonnelInputs from './PersonnelInputs/PersonnelInputs';
