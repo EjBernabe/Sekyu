@@ -16,7 +16,11 @@ const dataArray = [
 ];
 
 function acceptVisitor ( key ){
-    alert(key);
+    alert("Accept: " + key);
+}
+
+function denyVisitor ( key ){
+    alert("Deny: " + key);
 }
 
 class VisitorsList extends Component {
@@ -63,8 +67,8 @@ class VisitorsList extends Component {
                     {/* <Button transparent success> */}
                         <Text>Accept</Text>
                     </Button>
-                    {/* <Button transparent danger onPress={denyVisitor(dataArray.key)}> */}
-                    <Button transparent danger >
+                    <Button transparent danger onPress={() => denyVisitor(dataArray.key)}>
+                    {/* <Button transparent danger > */}
                         <Text>Deny</Text>
                     </Button>
                 </View>

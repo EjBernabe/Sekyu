@@ -24,9 +24,8 @@ class Homeowner extends Component {
                 <HeaderBar 
                     title={'Homeowner'} 
                     endTitle={'Logout'}
+                    hasTabs={true}
                     clicked={ this.logoutHandler } />
-                    
-                <Content padder>
                     <Tabs>
                         <Tab heading={ <TabHeading><Icon name="ios-people" /></TabHeading>}>
                             <AdvanceForm />
@@ -39,7 +38,6 @@ class Homeowner extends Component {
                             <VisitorsList />
                         </Tab>
                     </Tabs>
-                </Content>
             </Container>
         ); 
     }
