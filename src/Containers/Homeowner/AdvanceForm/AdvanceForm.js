@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Container, Button, Content, Text, Icon, 
             Card, CardItem, Body, Picker, Item, 
-                Textarea, DatePicker } from "native-base";
-import { View } from 'react-native';
+                Textarea, DatePicker, Toast } from "native-base";
 import { connect } from 'react-redux';
 
-import { advVisitorChanged, advVisiteeChanged, 
-            advDateChanged, advNoteChanged, submitForm } from '../../../Actions';
+import { advVisitorChanged, advDateChanged, advNoteChanged, submitForm } from '../../../Actions';
 import InputField from '../../../Components/InputComponents/InputField/InputField';
+import LoaderSpinner from '../../../Components/InputComponents/LoaderSpinner/LoaderSpinner';
 
 const today = new Date();
 const MONTH = today.getMonth();
@@ -17,30 +16,45 @@ const YEAR = today.getFullYear();
 class AdvanceForm extends Component {
     constructor ( props ) {
         super( props );
-        this.state = {
-            visiteeOptions: ['Visitee 1', 'Visitee 2']
-        };
+        this.state = { showToast: false };
+
         this.setDate = this.setDate.bind(this);
     }
 
     setDate = ( value ) => { this.props.advDateChanged( value.toLocaleDateString("en-US") ); }
 
-    onVisiteeChange = ( value ) => { this.props.advVisiteeChanged(value); }
-
     onVisitorChange = ( text ) => { this.props.advVisitorChanged(text); }
 
     onNoteChange = ( text ) => { this.props.advNoteChanged(text) ;}
 
-
     submitForm = () => { 
-        const { advVisitor, advVisitee, advDate, advNote } = this.props;
-        this.props.submitForm({ advVisitor, advVisitee, advDate, advNote });
+        const { advVisitor, advDate, advNote, advStatus } = this.props;
+        this.props.submitForm({ advVisitor, advDate, advNote, advStatus });
+    }
+
+    componentDidMount () {
+        if ( this.props.success ) {
+            Toast.show({
+                text: "Added New Visitor!",
+                buttonText: "Okay",
+                type: "success"
+            });
+        }
+    }
+
+    renderButton () {
+        if ( this.props.loading ) {
+            return <LoaderSpinner size="large" />
+        }
+        
+        return (
+            <Button full onPress={ this.submitForm }>
+                <Text>SUBMIT</Text>
+            </Button>
+        )
     }
 
     render () {
-        const visiteePickerOutput = this.state.visiteeOptions.map((visiteeOption, i) =>
-            <Picker.Item key={i} value={i} label={visiteeOption} />);
-
         return (
             <Container>
                 <Content padder>
@@ -57,15 +71,6 @@ class AdvanceForm extends Component {
                                     label={"Visitor's Name"} 
                                     value={ this.props.advVisitor }
                                     onChangeText={ this.onVisitorChange.bind(this) }/>
-                                <Item picker>
-                                    <Text>Visitee</Text>
-                                    <Picker 
-                                        mode="dropdown"
-                                        selectedValue={ this.props.advVisitee }
-                                        onValueChange={ this.onVisiteeChange.bind(this) }>
-                                    { visiteePickerOutput }    
-                                    </Picker>
-                                </Item>
                                 
                                 <Text>Additional Note</Text>
                                 <Textarea bordered rowSpan={5} 
@@ -75,9 +80,8 @@ class AdvanceForm extends Component {
 
                                 <Text>Date</Text>
                                 <DatePicker
-                                    defaultDate={new Date(2018, 4, 4)}
+                                    defaultDate={new Date(YEAR, MONTH, DAY)}
                                     minimumDate={new Date(YEAR, MONTH, DAY)}
-                                    maximumDate={new Date(2018, 12, 31)}
                                     format="MM/DD/YYYY"
                                     locale={"en"}
                                     timeZoneOffsetInMinutes={undefined}
@@ -91,9 +95,8 @@ class AdvanceForm extends Component {
                                     />
                             </Content>
                         </CardItem>
-                        <Button full onPress={ this.submitForm }>
-                            <Text>SUBMIT</Text>
-                        </Button>
+
+                        { this.renderButton() }
                     </Card>
                 </Content>
             </Container>
@@ -102,11 +105,11 @@ class AdvanceForm extends Component {
 };
 
 const mapStateToProps = ({ advForm }) => {
-    const { advVisitor, advVisitee, advDate, advNote, error, loading } = advForm;
+    const { advVisitor, advDate, advNote, advStatus, success, error, loading } = advForm;
 
-    return { advVisitor, advVisitee, advDate, advNote, error, loading };
+    return { advVisitor, advDate, advNote, advStatus, success, error, loading };
 }
 
 export default connect(mapStateToProps, {
-    advVisitorChanged, advVisiteeChanged, advDateChanged, advNoteChanged, submitForm
+    advVisitorChanged, advDateChanged, advNoteChanged, submitForm
 })(AdvanceForm);

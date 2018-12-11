@@ -1,6 +1,5 @@
 import React from 'react';
-import { Scene, Router } from 'react-native-router-flux';
-import { Actions } from 'react-native-router-flux';
+import { Scene, Router, Actions} from 'react-native-router-flux';
 
 import App from './Containers/App';
 import Login from './Containers/Login/Login';
@@ -17,7 +16,7 @@ const RouterComponent = () => {
     return (
         <Router>
             <Scene key="root"> 
-                <Scene hideNavBar key="appScene">
+                <Scene initial hideNavBar key="appScene">
                     <Scene
                         key="App" 
                         component={ App } />
@@ -60,7 +59,7 @@ const RouterComponent = () => {
                     </Scene>
                 </Scene>
 
-                <Scene initial hideNavBar key="homeownerScene">
+                <Scene hideNavBar key="homeownerScene">
                     <Scene 
                         key="HomeownerHome"
                         component={ Homeowner }

@@ -13,6 +13,8 @@ export const NEW_BUILDING = 'new_building';
 export const NEW_UNIT = 'new_unit';
 
 export const ADVANCE_VISITOR = 'advance_visitor';
-export const ADVANCE_VISITEE = 'advance_visitee';
 export const ADVANCE_DATE = 'advance_date';
 export const ADVANCE_NOTE = 'advance_note';
+export const SUBMIT_FORM = 'submit_form';
+export const SUBMIT_FORM_SUCCESS = 'submit_form_success';
+export const SUBMIT_FORM_FAIL = 'submit_form_fail';

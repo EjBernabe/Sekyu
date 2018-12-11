@@ -7,7 +7,8 @@ import { EMAIL_CHANGED, PASSWORD_CHANGED,
         NEW_NAME_CHANGED, NEW_EMAIL_CHANGED, NEW_CONTACT_CHANGED, 
             NEW_USERTYPE, NEW_BUILDING, NEW_UNIT,
         
-        ADVANCE_VISITOR, ADVANCE_VISITEE, ADVANCE_DATE, ADVANCE_NOTE
+        ADVANCE_VISITOR, ADVANCE_VISITEE, ADVANCE_DATE, ADVANCE_NOTE,
+            SUBMIT_FORM, SUBMIT_FORM_SUCCESS, SUBMIT_FORM_FAIL
         } from './types';
 
 export const emailChanged = ( text ) => {
@@ -27,7 +28,7 @@ export const passwordChanged = ( text ) => {
 export const loginUser = ({ email, password }) => {
     return (dispatch) => {
         dispatch({ type: LOGIN_USER });
-
+        
         firebase.auth().signInWithEmailAndPassword( email, password )
             .then(user => loginUserSuccess( dispatch, user ))
             .catch(() => { loginUserFail( dispatch ) });
@@ -40,7 +41,8 @@ const loginUserSuccess = ( dispatch, user ) => {
         payload: user
     });
 
-    Actions.adminScene();
+    //Actions.adminScene();
+    Actions.homeownerScene();
 };
 
 const loginUserFail = ( dispatch ) => { 
@@ -61,13 +63,6 @@ export const advVisitorChanged = ( text ) => {
     };
 };
 
-export const advVisiteeChanged = ( text ) => {
-    return {
-        type: ADVANCE_VISITEE,
-        payload: text
-    };
-};
-
 export const advDateChanged = ( text ) => {
     return {
         type: ADVANCE_DATE,
@@ -82,6 +77,15 @@ export const advNoteChanged = ( text ) => {
     }
 }
 
-export const submitForm = ({ advVisitor, advVisitee, advDate, advNote }) => {
-    console.log( advDate );
-}
+export const submitForm = ({ advVisitor, advDate, advNote, advStatus }) => {
+    const { currentUser } = firebase.auth();
+
+    return (dispatch) => {   
+        dispatch({ type: SUBMIT_FORM_SUCCESS });
+
+        // firebase.database().ref(`/users/homeowners/${currentUser.uid}/advVisitorsList`)
+        //     .push({ advVisitor, advDate, advNote, advStatus })
+        //     .then(dispatch({ type: SUBMIT_FORM_SUCCESS }))
+        //     .catch(dispatch({ type: SUBMIT_FORM_FAIL }));
+    }
+};

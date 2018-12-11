@@ -54,7 +54,7 @@ class Login extends Component {
                     </Card>
 
                     <Content style={{ backgroundColor: 'white' }}>
-                        <View>
+                        <View style={{ alignItems: 'center' }}>
                             <Text style={ styles.errorTextStyle }>
                                 { this.props.error } 
                             </Text>
@@ -71,8 +71,6 @@ class Login extends Component {
 const styles = {
     errorTextStyle: {
         fontSize: 20,
-        flex: 1,
-        alignSelf: 'center',
         color: 'red'
     }
 }

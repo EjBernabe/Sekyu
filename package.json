@@ -12,6 +12,7 @@
     "native-base": "^2.8.1",
     "react": "16.6.1",
     "react-native": "0.57.5",
+    "react-native-awesome-alerts": "^1.2.0",
     "react-native-custom-actionsheet": "0.0.4",
     "react-native-easy-grid": "^0.2.0",
     "react-native-router-flux": "^4.0.6",

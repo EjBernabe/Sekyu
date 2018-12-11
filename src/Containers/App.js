@@ -12,12 +12,12 @@ class App extends Component {
     componentWillMount () {
         if (!firebase.apps.length) {
             firebase.initializeApp({
-                apiKey: "AIzaSyCMwc-_SxvA_BHzR6nocZmA6GKP2VXv-bw",
-                authDomain: "authentication-e3dd4.firebaseapp.com",
-                databaseURL: "https://authentication-e3dd4.firebaseio.com",
-                projectId: "authentication-e3dd4",
-                storageBucket: "authentication-e3dd4.appspot.com",
-                messagingSenderId: "1086553064819"
+                apiKey: "AIzaSyBpRskOxo4Nu10Veb-dQSepiqfJVlA2eeE",
+                authDomain: "sekyuapp.firebaseapp.com",
+                databaseURL: "https://sekyuapp.firebaseio.com",
+                projectId: "sekyuapp",
+                storageBucket: "sekyuapp.appspot.com",
+                messagingSenderId: "548751742349"
             });
         }
     }
