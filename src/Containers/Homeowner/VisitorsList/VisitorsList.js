@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Button, Content, Accordion, Text, Icon, Tab, Tabs } from "native-base";
 import { View } from 'react-native';
+import { connect } from 'react-redux';
+
+import { visitorsListFetch } from '../../../Actions';
 
 const dataArray = [
     { 
@@ -70,10 +73,14 @@ class VisitorsList extends Component {
                     <Button transparent danger onPress={() => denyVisitor(dataArray.key)}>
                     {/* <Button transparent danger > */}
                         <Text>Deny</Text>
-                    </Button>
+                    </Button>    
                 </View>
             </Content>
         );
+    }
+
+    componentWillMount () {
+        // this.props.visitorsListFetch();
     }
 
     render () {
@@ -91,4 +98,14 @@ class VisitorsList extends Component {
     }
 }
 
-export default VisitorsList;
+// const mapStateToProps = ({ advForm }) => {
+//     const { advVisitor, advDate, advNote, advStatus, 
+//                 success, error, loading } = advForm;
+
+//     return { advVisitor, advDate, advNote, advStatus, 
+//                 success, error, loading };
+// }
+
+export default connect(null, {
+    visitorsListFetch
+})(VisitorsList);

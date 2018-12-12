@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, View} from 'react-native';
+import { Modal, View } from 'react-native';
 import { Container, Content, Form, Text, Button,
             Picker, Item, Label, Input, Header, 
                 Left, Body, Title, Icon, 

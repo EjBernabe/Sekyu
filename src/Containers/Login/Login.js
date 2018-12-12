@@ -26,7 +26,7 @@ class Login extends Component {
         }
 
         return (
-            <Button full danger onPress={ this.loginUser }>
+            <Button full info onPress={ this.loginUser }>
                 <Text>LOGIN HERE</Text>
             </Button>
         );

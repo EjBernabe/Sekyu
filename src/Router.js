@@ -1,5 +1,6 @@
 import React from 'react';
-import { Scene, Router, Actions} from 'react-native-router-flux';
+import { Scene, Router, Actions } from 'react-native-router-flux';
+import { Icon } from 'native-base';
 
 import App from './Containers/App';
 import Login from './Containers/Login/Login';
@@ -11,60 +12,74 @@ import VehiclesManagement from './Containers/Administrator/VehiclesManagement/Ve
 import ReportsManagement from './Containers/Administrator/ReportsManagement/ReportsManagement';
 
 import Homeowner from './Containers/Homeowner/Homeowner';
+import HomeownerMenu from './Containers/Homeowner/HomeownerMenu/HomeownerMenu';
+import AdvancedList from './Containers/Homeowner/AdvanceForm/AdvancedList/AdvancedList';
+
+import Guard from './Containers/Guard/Guard';
 
 const RouterComponent = () => {
     return (
-        <Router>
+        <Router navigationBarStyle={{ backgroundColor: '#3F51B5' }}>
             <Scene key="root"> 
-                <Scene initial hideNavBar key="appScene">
-                    <Scene
-                        key="App" 
-                        component={ App } />
-                </Scene>
+                <Scene
+                    key="Main" 
+                    component={ App } 
+                    hideNavBar />
 
-                <Scene hideNavBar key="authScene">
+                <Scene
+                    key="Login" 
+                    component={ Login } 
+                    hideNavBar />
+
+                {/* admin start */}
+                <Scene 
+                    key="AdminHome" 
+                    component={ Admin } />
+
                     <Scene 
-                        key="Login" 
-                        component={ Login } 
-                        title="Login" />
-                </Scene>        
-
-                <Scene  hideNavBar key="adminScene">
-                    <Scene 
-                        key="AdminHome" 
-                        component={ Admin } />
-
-                    <Scene  hideNavBar key="usersMgmtScene">
-                        <Scene 
-                            key="UsersManagement" 
-                            component={ UsersManagement } />    
-                        
-                        <Scene 
-                            key="NewUser"
-                            component={ NewUser } />
-                    </Scene>
+                        key="UsersManagement" 
+                        component={ UsersManagement } />    
                     
-                    <Scene hideNavBar key="vehiclesMgmtScene">
-                        <Scene
-                            key="VehiclesManagement" 
-                            component={ VehiclesManagement } 
-                            title="Vehicles" />
-                    </Scene>
-
-                    <Scene key="reportsMgmtScene">
-                        <Scene hideNavBar={false}
-                            key="ReportsManagement" 
-                            component={ ReportsManagement } 
-                            title="Reports" />
-                    </Scene>
-                </Scene>
-
-                <Scene hideNavBar key="homeownerScene">
                     <Scene 
-                        key="HomeownerHome"
-                        component={ Homeowner }
-                    />
+                        key="NewUser"
+                        component={ NewUser } />
+
+                    <Scene
+                        key="VehiclesManagement" 
+                        component={ VehiclesManagement } 
+                        title="Vehicles" />
+                
+                    <Scene hideNavBar={false}
+                        key="ReportsManagement" 
+                        component={ ReportsManagement } 
+                        title="Reports" />
+
+                {/* admin end */}
+
+                <Scene
+                    initial
+                    key="HomeownerDrawer"
+                    drawer
+                    contentComponent={ HomeownerMenu }
+                    drawerIcon={<Icon name='menu' style={{fontSize: 30, color: '#FFF'}}/>}
+                    drawerWidth={300}
+                    hideNavBar
+                >
+                        <Scene initial
+                            key="HomeownerHome"
+                            component={ Homeowner }
+                        />
+
+                        <Scene
+                            key="AdvancedList"
+                            component={ AdvancedList }
+                        />
                 </Scene>
+
+                <Scene 
+                    key="GuardHome"
+                    component={ Guard }
+                />
             </Scene>
         </Router>
     );

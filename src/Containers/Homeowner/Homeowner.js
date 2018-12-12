@@ -9,7 +9,6 @@ import HeaderBar from '../../Components/HeaderBar/HeaderBar';
 import AuxLayout from '../Layout/AuxLayout';
 import AdvanceForm from './AdvanceForm/AdvanceForm';
 import VisitorsList from './VisitorsList/VisitorsList';
-import HeaderbarNav from './HeaderbarNav/HeaderbarNav';
 
 class Homeowner extends Component {
     logoutHandler = () => {
@@ -20,24 +19,18 @@ class Homeowner extends Component {
     render () {
         return (
             <Container>
-                {/* <HeaderbarNav /> */}
-                <HeaderBar 
-                    title={'Homeowner'} 
-                    endTitle={'Logout'}
-                    hasTabs={true}
-                    clicked={ this.logoutHandler } />
-                    <Tabs>
-                        <Tab heading={ <TabHeading><Icon name="ios-people" /></TabHeading>}>
-                            <AdvanceForm />
-                        </Tab>
-                        <Tab heading={ 
-                            <TabHeading>
-                                <Icon name="notifications" />
-                                <Badge style={{ position: 'relative' }}><Text>2</Text></Badge>
-                            </TabHeading>}>
-                            <VisitorsList />
-                        </Tab>
-                    </Tabs>
+                <Tabs>
+                    <Tab heading={ <TabHeading><Icon name="ios-people" /></TabHeading>}>
+                        <AdvanceForm />
+                    </Tab>
+                    <Tab heading={ 
+                        <TabHeading>
+                            <Icon name="notifications" />
+                            <Badge style={{ position: 'relative' }}><Text>2</Text></Badge>
+                        </TabHeading>}>
+                        <VisitorsList />
+                    </Tab>
+                </Tabs>
             </Container>
         ); 
     }

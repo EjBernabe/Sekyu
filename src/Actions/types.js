@@ -18,3 +18,7 @@ export const ADVANCE_NOTE = 'advance_note';
 export const SUBMIT_FORM = 'submit_form';
 export const SUBMIT_FORM_SUCCESS = 'submit_form_success';
 export const SUBMIT_FORM_FAIL = 'submit_form_fail';
+export const RESET_FORM_STATE = 'reset_form_state';
+
+export const EXPECTED_VISITORS_FETCH_SUCCESS = 'expected_visitors_fetch';
+export const VISITORS_LIST_FETCH_SUCCESS = 'visitors_list_fetch_success';
